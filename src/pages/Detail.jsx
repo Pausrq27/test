@@ -111,19 +111,38 @@ export default function Detail({ user }) {
 
       <h2 className="h2">Imágenes</h2>
       {imgCount > 0 ? (
-        <div className="card" style={{maxWidth: 820}}>
-          <div style={{display:"flex", alignItems:"center", gap:12}}>
+        <div className="card" style={{maxWidth: 1000, margin: "0 auto"}}>
+          <div style={{display: "flex", alignItems: "center", gap: 20}}>
+            {/* Botón anterior */}
             <button className="btn" onClick={prev} disabled={imgCount <= 1}>◀</button>
-            <div className="thumb" style={{flex:"1 1 auto"}}>
+
+            {/* Imagen */}
+            <div style={{flex: "2 1 60%", textAlign:"center"}}>
               <RemoteImage
                 src={fetchUrl}
                 alt={currentImgDesc}
-                style={{maxHeight: 420, width:"100%", objectFit:"contain", background:"#fff", borderRadius:8}}
+                style={{
+                  maxHeight: 420,
+                  width: "100%",
+                  objectFit: "contain",
+                  background: "#fff",
+                  borderRadius: 8
+                }}
               />
-              <div className="helper" style={{textAlign:"center", marginTop:6}}>
-                {currentImgDesc} {imgCount > 1 ? `(${idx+1}/${imgCount})` : ""}
+              <div className="helper" style={{marginTop: 6}}>
+                {imgCount > 1 ? `(${idx+1}/${imgCount})` : ""}
               </div>
             </div>
+
+            {/* Descripción */}
+            <div style={{flex: "1 1 40%", padding: "0 12px"}}>
+              <h3 className="h3">Descripción</h3>
+              <p style={{lineHeight:1.5}}>
+                {currentImgDesc}
+              </p>
+            </div>
+
+            {/* Botón siguiente */}
             <button className="btn" onClick={next} disabled={imgCount <= 1}>▶</button>
           </div>
         </div>
