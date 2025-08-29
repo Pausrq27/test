@@ -9,3 +9,9 @@ npm install bcrypt
 #react y router
 npm install react react-dom react-router-dom
 npm install -D vite @vitejs/plugin-react nodemon concurrently
+
+
+o npm install
+
+#levantar front y backend 
+npm run dev:all
